@@ -32,7 +32,7 @@ public class FrontierValidatorTest {
         OrderCaseA order = new OrderDto();
         order.setComment("S");
         Set<ConstraintViolation<OrderCaseA>> constraintViolations = validator.validate(order);
-        assertThat("Order is valid", constraintViolations.isEmpty(), is(false));
+        assertThat("Order is not valid", constraintViolations.isEmpty(), is(false));
         System.out.println(constraintViolations);
     }
 
@@ -41,7 +41,7 @@ public class FrontierValidatorTest {
         OrderCaseB order = new OrderDto();
         order.setComment("Sdfjdhfjdj");
         Set<ConstraintViolation<OrderCaseB>> constraintViolations = validator.validate(order);
-        assertThat("Order is valid", constraintViolations.isEmpty(), is(false));
+        assertThat("Order is not valid", constraintViolations.isEmpty(), is(false));
         System.out.println(constraintViolations);
     }
 }
