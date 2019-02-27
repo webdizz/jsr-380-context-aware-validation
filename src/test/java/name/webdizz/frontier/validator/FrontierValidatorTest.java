@@ -29,18 +29,18 @@ public class FrontierValidatorTest {
 
     @Test
     public void shouldValidateOrderCaseA() {
-        OrderCaseA order = new OrderDto();
+        OrderDto order = new OrderDto();
         order.setComment("S");
-        Set<ConstraintViolation<OrderCaseA>> constraintViolations = validator.validate(order);
+        Set<ConstraintViolation<OrderDto>> constraintViolations = validator.validate(order, OrderCaseA.class);
         assertThat("Order is not valid", constraintViolations.isEmpty(), is(false));
         System.out.println(constraintViolations);
     }
 
     @Test
     public void shouldValidateOrderCaseB() {
-        OrderCaseB order = new OrderDto();
+        OrderDto order = new OrderDto();
         order.setComment("Sdfjdhfjdj");
-        Set<ConstraintViolation<OrderCaseB>> constraintViolations = validator.validate(order);
+        Set<ConstraintViolation<OrderDto>> constraintViolations = validator.validate(order, OrderCaseB.class);
         assertThat("Order is not valid", constraintViolations.isEmpty(), is(false));
         System.out.println(constraintViolations);
     }
